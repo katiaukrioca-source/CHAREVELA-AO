@@ -1,0 +1,133 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Chá Revelação — Você é convidado!</title>
+  <style>
+    :root{--bg1:#fdf2f8;--bg2:#edf2ff;--card:#ffffff;--accent:#ff69b4}
+    *{box-sizing:border-box;font-family:Inter,system-ui,Segoe UI,Roboto,'Helvetica Neue',Arial}
+    body{margin:0;min-height:100vh;background:linear-gradient(135deg,var(--bg1),var(--bg2));display:flex;align-items:center;justify-content:center;padding:24px}
+    .container{max-width:900px;width:100%;background:linear-gradient(180deg,rgba(255,255,255,0.6),rgba(255,255,255,0.85));border-radius:16px;box-shadow:0 10px 30px rgba(20,20,40,0.08);overflow:hidden}
+    header{display:flex;gap:16px;align-items:center;padding:28px}
+    .logo{width:84px;height:84px;border-radius:14px;display:flex;align-items:center;justify-content:center;background:linear-gradient(45deg,#ffd1e6,#dbe7ff);font-size:20px;font-weight:700;color:#444}
+    .headinfo h1{margin:0;font-size:20px}
+    .headinfo p{margin:4px 0 0;color:#666}
+    main{display:grid;grid-template-columns:1fr 360px;gap:20px;padding:24px}
+    .card{background:var(--card);padding:18px;border-radius:12px;box-shadow:0 4px 14px rgba(20,20,40,0.04)}
+    .invite{font-size:16px;color:#333}
+    .details{margin-top:12px;color:#555}
+    button.primary{background:linear-gradient(90deg,#ff7ab6,#7dbaff);border:none;color:#fff;padding:10px 14px;border-radius:10px;cursor:pointer}
+    button.ghost{background:transparent;border:1px solid #ddd;padding:10px 12px;border-radius:10px;cursor:pointer}
+    form{display:flex;flex-direction:column;gap:12px}
+    label{font-size:14px;color:#333}
+    input[type=text],input[type=email],select,textarea{width:100%;padding:10px;border-radius:8px;border:1px solid #e6e6e9;font-size:14px}
+    .radio-row{display:flex;gap:12px;align-items:center}
+    .small{font-size:12px;color:#666}
+    footer{padding:16px;text-align:center;color:#666;font-size:13px}
+    .success-message{display:none;margin-top:12px;padding:12px;background:#e0ffe9;border:1px solid #a2e0b8;border-radius:8px;color:#246b42;text-align:center;animation:fadeIn .5s ease}
+    @keyframes fadeIn{from{opacity:0}to{opacity:1}}
+    @media(max-width:880px){main{grid-template-columns:1fr} .headinfo h1{font-size:18px}}
+  </style>
+</head>
+<body>
+  <div class="container" role="main">
+    <header>
+      <div class="logo">👶</div>
+      <div class="headinfo">
+        <h1>Chá Revelação do(a) bebê — Você está convidado(a)!</h1>
+        <p>Data: <strong>10/01/2026</strong> • Local: Casa da Família • Hora: <strong>16:00</strong></p>
+      </div>
+    </header>
+
+    <main>
+      <section>
+        <div class="card invite">
+          <p>Vem comemorar conosco! Antes do grande momento queremos saber as suas apostas e preparar tudo com carinho. Preencha as caixinhas abaixo — é rapidinho ✨</p>
+
+          <!-- Formulário configurado para envio via Formspree -->
+          <form id="inviteForm" class="card" action="https://formspree.io/f/mkgpnddw" method="POST">
+            <div>
+              <label for="name">Seu nome</label>
+              <input id="name" name="name" type="text" placeholder="Ex.: Maria" required />
+            </div>
+
+            <div>
+              <label for="email">Seu e-mail</label>
+              <input id="email" name="email" type="email" placeholder="seu@email.com" required />
+            </div>
+
+            <div>
+              <label>O que você acha que será?</label>
+              <div class="radio-row">
+                <label><input type="radio" name="guess" value="Menino" checked /> Menino</label>
+                <label><input type="radio" name="guess" value="Menina" /> Menina</label>
+                <label><input type="radio" name="guess" value="Surpresa" /> Surpresa</label>
+              </div>
+            </div>
+
+            <div>
+              <label for="present">Vai trazer presente?</label>
+              <select id="present" name="present">
+                <option value="Nao">Não</option>
+                <option value="Sim">Sim</option>
+                <option value="Talvez">Talvez</option>
+              </select>
+            </div>
+
+            <div>
+              <label for="message">Mensagem (opcional)</label>
+              <textarea id="message" name="message" rows="3" placeholder="Deixe uma mensagem carinhosa..."></textarea>
+            </div>
+
+            <button class="primary" type="submit">Enviar resposta 💌</button>
+            <div class="success-message" id="successMessage">💖 Obrigado! Sua resposta foi enviada com sucesso!</div>
+          </form>
+        </div>
+
+        <div class="card" style="margin-top:16px">
+          <h3>Detalhes do evento</h3>
+          <p class="details">Teremos comes, bebes e o momento da revelação às 16:00. Traga apenas alegria e boa energia! Caso precise de indicação de presente, entre em contato conosco.</p>
+        </div>
+      </section>
+
+      <aside>
+        <div class="card">
+          <h3>Como enviar sua resposta</h3>
+          <ol>
+            <li>Preencha seu nome, e-mail e escolha sua aposta.</li>
+            <li>Clique em <strong>Enviar resposta 💌</strong>.</li>
+            <li>Suas informações serão enviadas diretamente para o e-mail do organizador: <strong>katiaukrioca@gmail.com</strong>.</li>
+          </ol>
+        </div>
+      </aside>
+    </main>
+
+    <footer>
+      <small>Feito com carinho 💕 — personalize textos ou cores se desejar.</small>
+    </footer>
+  </div>
+
+  <script>
+    const form = document.getElementById('inviteForm');
+    const successMessage = document.getElementById('successMessage');
+
+    form.addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const formData = new FormData(form);
+      const response = await fetch(form.action, {
+        method: 'POST',
+        body: formData,
+        headers: { 'Accept': 'application/json' }
+      });
+      if (response.ok) {
+        form.reset();
+        successMessage.style.display = 'block';
+        setTimeout(() => successMessage.style.display = 'none', 5000);
+      } else {
+        alert('Ocorreu um erro ao enviar. Tente novamente mais tarde.');
+      }
+    });
+  </script>
+</body>
+</html>
